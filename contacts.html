@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+function getPlaceName()
+{
+   //This below statement is used to send the data to google maps api and get the place
+ name in different formats. we need to convert it as required. 
+   $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&sensor=true');
+
+   
+   $output= json_decode($geocode);
+
+   //Here "formatted_address" is used to display the address in a user friendly format.
+   echo $output->results[0]->formatted_address;
+}
+getPlaceName();
+?>
+
+</body>
+</html> 
